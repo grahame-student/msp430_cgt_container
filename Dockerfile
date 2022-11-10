@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 # Add Code Composer Studio
 ENV INSTALLER_URL=https://software-dl.ti.com/codegen/esd/cgt_public_sw/MSP430/21.6.0.LTS/ti_cgt_msp430_21.6.0.LTS_linux-x64_installer.bin

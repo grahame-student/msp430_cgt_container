@@ -2,8 +2,8 @@ FROM ubuntu:22.04
 
 # Add Code Composer Studio
 ENV INSTALLER_VERSION=21.6.0.LTS
-ENV INSTALLER_URL=https://software-dl.ti.com/codegen/esd/cgt_public_sw/MSP430/${21.6.0.LTS}/ti_cgt_msp430_${21.6.0.LTS}_linux-x64_installer.bin
-ENV INSTALLER_NAME=ti_cgt_msp430_${21.6.0.LTS}_linux-x64_installer.bin
+ENV INSTALLER_URL=https://software-dl.ti.com/codegen/esd/cgt_public_sw/MSP430/${INSTALLER_VERSION}/ti_cgt_msp430_${INSTALLER_VERSION}_linux-x64_installer.bin
+ENV INSTALLER_NAME=ti_cgt_msp430_${INSTALLER_VERSION}_linux-x64_installer.bin
 
 RUN ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
 RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \

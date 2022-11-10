@@ -16,7 +16,8 @@ RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
                                                   curl=7.58.0-2ubuntu3.19 \
                                                   unzip=6.0-21ubuntu1.1 \
                                                   wget=1.19.4-1ubuntu2.2 && \
-    apt-get clean
+    apt-get clean && \
+    rm -rf /etc/apt/*
 
 RUN mkdir /ccs_install && \
     cd /ccs_install \

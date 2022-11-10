@@ -21,7 +21,7 @@ RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
 
 WORKDIR /ccs_install
 RUN wget -q ${INSTALLER_URL} \
-    && chmod 777 /ccs_install/${INSTALLER_URL} \
-    && ls -l /ccs_install \
-    && ${INSTALLER_URL} --prefix /opt/ti --unattendedmodeui minimal \
-    && rm -rf /ccs_install/
+RUN chmod 777 /ccs_install/${INSTALLER_URL} \
+RUN ls -l /ccs_install \
+RUN ${INSTALLER_URL} --prefix /opt/ti --unattendedmodeui minimal \
+RUN rm -rf /ccs_install/

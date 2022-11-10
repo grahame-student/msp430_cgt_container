@@ -1,10 +1,7 @@
 FROM ubuntu:22.04
 
-# Add Code Composer Studio
-ENV INSTALLER_VERSION=21.6.0.LTS
-ENV INSTALLER_URL=https://software-dl.ti.com/codegen/esd/cgt_public_sw/MSP430/${INSTALLER_VERSION}/ti_cgt_msp430_${INSTALLER_VERSION}_linux-x64_installer.bin
-ENV INSTALLER_NAME=ti_cgt_msp430_${INSTALLER_VERSION}_linux-x64_installer.bin
 
+# Prepare system and install dependencies
 RUN ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime
 RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
     apt-get update && \
@@ -20,6 +17,12 @@ RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
                                                   wget=1.21.2-2ubuntu1 && \
     apt-get clean && \
     rm -rf /etc/apt/*
+
+
+# Install MSP430 Code Generation Tools
+ENV INSTALLER_VERSION=21.6.0.LTS
+ENV INSTALLER_URL=https://software-dl.ti.com/codegen/esd/cgt_public_sw/MSP430/${INSTALLER_VERSION}/ti_cgt_msp430_${INSTALLER_VERSION}_linux-x64_installer.bin
+ENV INSTALLER_NAME=ti_cgt_msp430_${INSTALLER_VERSION}_linux-x64_installer.bin
 
 WORKDIR /ccs_install
 RUN wget -q ${INSTALLER_URL} && \
